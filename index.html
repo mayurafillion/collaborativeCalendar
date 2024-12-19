@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Calendar App</h1>
+            <div id="auth">
+                <!-- Login Form -->
+                <div id="login-form">
+                    <input type="text" id="username" placeholder="Username">
+                    <input type="password" id="password" placeholder="Password">
+                    <button onclick="login()">Login</button>
+                    <button onclick="register()">Register</button>
+                </div>
+                
+                <!-- Registration Form -->
+                <div id="register-form" style="display: none;">
+                    <input type="text" id="new-username" placeholder="Username">
+                    <input type="password" id="new-password" placeholder="Password">
+                    <button onclick="createAccount()">Create Account</button>
+                    <button onclick="toggleForms()">Back to Login</button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content" style="display: none;">
+            <div id="user-info">
+                <h2>Welcome, <span id="user-name"></span></h2>
+                <button onclick="logout()">Logout</button>
+            </div>
+            <div id="calendar-list">
+                <h3>Your Calendars</h3>
+                <ul id="user-calendars"></ul>
+                <button onclick="createCalendar()">Create New Calendar</button>
+                <h3>Public Calendars</h3>
+                <ul id="public-calendars"></ul>
+            </div>
+            <div id="calendar-view" style="display: none;">
+                <h3 id="calendar-title"></h3>
+                <div id="calendar-navigator">
+                    <button onclick="navigateYear(-1)">Previous Year</button>
+                    <button onclick="navigateMonth(-1)">Previous Month</button>
+                    <span id="month-year"></span>
+                    <button onclick="navigateMonth(1)">Next Month</button>
+                    <button onclick="navigateYear(1)">Next Year</button>
+                </div>
+                <table id="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-grid"></tbody>
+                </table>
+                <ul id="event-list"></ul>
+                <button onclick="addEvent()">Add Event</button>
+                <button onclick="modifyEvent()">Modify Event</button>
+                <button onclick="deleteEvent()">Delete Event</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
